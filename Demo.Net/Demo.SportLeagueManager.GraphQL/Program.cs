@@ -18,7 +18,7 @@ builder.Services
         .AddSystemTextJson()
         .AddSchema<AppSchema>()
         .AddGraphTypes(Assembly.GetAssembly(typeof(AppSchema)) ?? Assembly.GetExecutingAssembly())
-    ); 
+    );
 
 
 var app = builder.Build();
@@ -53,50 +53,20 @@ app.MapGet("/weatherforecast", (HttpContext httpContext) =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-
-
-//var schema = Schema.For("""
-//              type Droid {
-//                id: String!
-//                name: String!
-//              }
-
-//              type Query {
-//                hero: Droid
-//              }
-//            """, _ => {
-//    _.Types.Include<Query>();
-//});
-//var schema2 = new Schema { Query = new StarWarsQuery() };
-//var json = await schema2.ExecuteAsync(_ =>
-//{
-//    _.Query = "{ hero { id name } }";
-//});
-
-
-//Console.WriteLine(json);
-
 app.UseGraphQL();
 app.UseGraphQLGraphiQL("/api/ui");
 
 app.Run();
-static void ConfigureServices(IServiceCollection services)
-{
-    //services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
-    //services.AddSingleton<IGraphQLSerializer, GraphQLSerializer>();
-    //services.AddSingleton<StarWarsData>();
-    //services.AddSingleton<StarWarsQuery>();
-    //services.AddSingleton<StarWarsMutation>();
-    //services.AddSingleton<HumanType>();
-    //services.AddSingleton<HumanInputType>();
-    //services.AddSingleton<DroidType>();
-    //services.AddSingleton<CharacterInterface>();
-    services.AddSingleton<EpisodeEnum>();
-    services.AddSingleton<EpisodeEnum>();
-    services.AddSingleton<AppQuery>();
-    services.AddSingleton<StarWarsQuery>();
-    services.AddSingleton<ISchema, AppSchema>();
-}
+
+
+//static void ConfigureServices(IServiceCollection services)
+//{
+//    services.AddSingleton<EpisodeEnum>();
+//    services.AddSingleton<EpisodeEnum>();
+//    services.AddSingleton<AppQuery>();
+//    services.AddSingleton<StarWarsQuery>();
+//    services.AddSingleton<ISchema, AppSchema>();
+//}
 
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
