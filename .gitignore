@@ -481,3 +481,4 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+.locals/
