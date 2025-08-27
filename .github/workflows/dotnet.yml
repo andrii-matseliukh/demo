@@ -18,15 +18,29 @@ env:
 jobs:
   job-build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
-    - name: Copy file via SSH password
-      uses: appleboy/scp-action@v1
-      with:
-        host: $HOST
-        username: $USERNAME
-        password: $PASSWORD
-        port: 22
-        source: "~/test/testA.txt"
-        target: "/var/www"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create testB directory
+        run: mkdir -p testB
+
+      - name: Create test file
+        run: |
+          mkdir -p test
+          echo "sample content" > testB/testA.txt
+
+      - name: List files for debugging
+        run: ls -alR
+
+      - name: Copy file via SSH password
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ env.HOST }}
+          username: ${{ env.USERNAME }}
+          password: ${{ env.PASSWORD }}
+          port: 22
+          source: "testB/testA.txt"
+          target: "/var/www"
