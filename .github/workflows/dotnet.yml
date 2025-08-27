@@ -10,31 +10,23 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+    HOST: 185.233.47.134
+    USERNAME: root
+    PASSWORD: chyika1994
+
 jobs:
   job-build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - name: Copy file via SSH password
+      uses: appleboy/scp-action@v1
       with:
-        dotnet-version: 9.0.x
-    - name: Restore dependencies
-      run: dotnet restore Demo.Net/Demo.Net.sln
-      
-    - name: Build
-      run: dotnet build Demo.Net/Demo.Net.sln --configuration Release --no-restore
-      
-    - name: Publish
-      run: dotnet publish Demo.Net/Demo.SportLeagueManager.Web/Demo.SportLeagueManager.Web.csproj --configuration Release --output ./publish
-
-    - name: Copy files to server via SSH
-      uses: appleboy/scp-action@v0.1.7
-      with:
-        host: 185.233.47.134
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "./publish/"
-        target: "~/deploy/SportLeagueManagerWeb"
+        host: $HOST
+        username: $USERNAME
+        password: $PASSWORD
+        port: 22
+        source: "~/test/testA.txt"
+        target: "/var/www"
