@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Time.Testing;
+﻿using Demo.SportLeagueManager.Domain;
+using Microsoft.Extensions.Time.Testing;
 using Shouldly;
-using System.Collections.Generic;
 
 namespace Demo.SportLeagueManager.UnitTests;
 
@@ -9,23 +9,20 @@ public class UnitTest1
     [Fact]
     public void Test1()
     {
-
+        
     }
 
     [Fact]
     public void CreateSeason_SeasonCreated()
     {
         var timeProvider = new FakeTimeProvider();
-
-        var admin = Admin.CreateAdmin();
-
-        var SeasonName = "Default Season 1";
+        var seasonName = "Default Season 1";
         DateOnly startOfSeason = DateOnly.FromDateTime(timeProvider.GetUtcNow().Date);
         DateOnly endOfSeason = startOfSeason.AddMonths(2);
-        var Season = admin.CreateSeason(SeasonName, startOfSeason, endOfSeason);
+        var season = Season.CreateSeason(seasonName, startOfSeason, endOfSeason);
 
-        Season.ShouldNotBeNull();
-        Season.Title.ShouldBe(SeasonName);
+        season.ShouldNotBeNull();
+        season.Title.ShouldBe(seasonName);
     }
 
     [Fact]
@@ -40,7 +37,7 @@ public class UnitTest1
 
         Should.Throw<ArgumentException>(() =>
         {
-            admin.CreateSeason("default name", startOfSeason, endOfSeason);
+            Season.CreateSeason("default name", startOfSeason, endOfSeason);
         });
     }
 
@@ -49,9 +46,7 @@ public class UnitTest1
     {
         var timeProvider = new FakeTimeProvider();
 
-        var admin = Admin.CreateAdmin();
-
-        var season = admin.CreateSeason(
+        var season = Season.CreateSeason(
             "Default Season 1", 
             DateOnly.FromDateTime(timeProvider.GetUtcNow().Date), 
             DateOnly.FromDateTime(timeProvider.GetUtcNow().Date).AddMonths(2));
@@ -67,14 +62,13 @@ public class UnitTest1
     {
         var timeProvider = new FakeTimeProvider();
 
-        var admin = Admin.CreateAdmin();
-
-        var season = admin.CreateSeason(
+        var season = Season.CreateSeason(
             "Default Season 1",
             DateOnly.FromDateTime(timeProvider.GetUtcNow().Date),
             DateOnly.FromDateTime(timeProvider.GetUtcNow().Date).AddMonths(2));
 
-        season.TeamCollection.Add(null);
+        ITeam nullTeam = null;
+        season.TeamCollection.Add(nullTeam);
 
         season.TeamCollection.GetAll().ShouldBeEmpty();
     }
@@ -84,12 +78,10 @@ public class UnitTest1
     {
         var timeProvider = new FakeTimeProvider();
 
-        var admin = Admin.CreateAdmin();
-
-        var season = admin.CreateSeason(
-            "Default Season 1",
-            DateOnly.FromDateTime(timeProvider.GetUtcNow().Date),
-            DateOnly.FromDateTime(timeProvider.GetUtcNow().Date).AddMonths(2));
+        var seasonName = "Default Season 1";
+        var startIn = DateOnly.FromDateTime(timeProvider.GetUtcNow().Date);
+        var endIn = DateOnly.FromDateTime(timeProvider.GetUtcNow().Date).AddMonths(2);
+        var season = Season.CreateSeason(seasonName, startIn, endIn);
 
         season.TeamCollection.Add(new EmptyTeam("Циркачі"));
         season.TeamCollection.Add(new EmptyTeam("Navi junior"));

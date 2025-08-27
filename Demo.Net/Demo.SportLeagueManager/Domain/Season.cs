@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Demo.SportLeagueManager;
+﻿namespace Demo.SportLeagueManager.Domain;
 
 public record Season
 {
@@ -13,10 +7,15 @@ public record Season
 
     public TeamCollection TeamCollection { get; } = new TeamCollection(Enumerable.Empty<ITeam>());
 
-    public Season(string title, SeasonPeriod period)
+    private Season(string title, SeasonPeriod period)
     {
         Title = title;
         SeasonPeriod = period;
+    }
+
+    public static Season CreateSeason(string title, DateOnly startIn, DateOnly endIn)
+    {
+        return new Season(title, new SeasonPeriod(startIn, endIn));
     }
 }
 
@@ -29,7 +28,7 @@ public record SeasonPeriod
     {
         if (startIn >= endIn)
         {
-            throw new ArgumentException("Invalid season period");
+            throw new ArgumentException($"Invalid season period: {startIn} - {endIn}");
         }
 
         StartIn = startIn;

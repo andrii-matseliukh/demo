@@ -11,13 +11,14 @@ var p = new Asset("abc");
 object y = "5";
 int z = (int)y;          // Runtime error, downcast failed
 
+
 class Person
 {
     public int Age { get; set; } = 23;
     public string Name { get; set; }
     public Person()
     {
-        
+
     }
     public Person(string name)
     {
@@ -26,7 +27,7 @@ class Person
     }
 }
 
-class Student: Person
+class Student : Person
 {
     public int Age { get; set; } = 24;
     public Student()

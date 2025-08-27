@@ -1,6 +1,6 @@
-@Demo.SportLeagueManager.GraphQL_HostAddress = http://localhost:5216
+@Demo.SportLeagueManager.Web_HostAddress = http://localhost:5216
 
-GET {{Demo.SportLeagueManager.GraphQL_HostAddress}}/weatherforecast/
+GET {{Demo.SportLeagueManager.Web_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

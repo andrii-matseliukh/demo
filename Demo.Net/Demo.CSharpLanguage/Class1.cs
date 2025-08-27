@@ -1,8 +1,9 @@
 ﻿namespace Demo.CSharpLanguage;
 
-public class Class1
+class Class1B
 {
-    public void Main()
+    public int MyProperty { get; set; }
+    public void MainB()
     {
         DateTime now = DateTime.Now;
         Console.WriteLine($"Local: {TimeProvider.System.GetLocalNow()}");
