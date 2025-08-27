@@ -11,9 +11,7 @@ on:
     branches: [ "main" ]
 
 env:
-    HOST: 185.233.47.134
-    USERNAME: root
-    PASSWORD: chyika1994
+
 
 jobs:
   job-build:
