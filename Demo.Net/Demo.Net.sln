@@ -17,9 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.CSharpLanguage.UnitTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SportLeagueManager.UnitTests", "Demo.SportLeagueManager.UnitTests\Demo.SportLeagueManager.UnitTests.csproj", "{A20D4370-F75E-4AA8-9C48-BDE267BC76B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SportLeagueManager.Web", "Demo.SportLeagueManager.GraphQL\Demo.SportLeagueManager.Web.csproj", "{E05B71B0-50C3-4909-8491-9008182B3C99}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SportLeagueManager.Infrastructure", "Demo.SportLeagueManager.Infrastructure\Demo.SportLeagueManager.Infrastructure.csproj", "{657F4AA6-609B-4A58-8091-F74587524EAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SportLeagueManager.Web", "Demo.SportLeagueManager.Web\Demo.SportLeagueManager.Web.csproj", "{4202EEEF-693D-2227-5080-01509AFAA66C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,14 +51,14 @@ Global
 		{A20D4370-F75E-4AA8-9C48-BDE267BC76B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A20D4370-F75E-4AA8-9C48-BDE267BC76B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A20D4370-F75E-4AA8-9C48-BDE267BC76B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E05B71B0-50C3-4909-8491-9008182B3C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E05B71B0-50C3-4909-8491-9008182B3C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E05B71B0-50C3-4909-8491-9008182B3C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E05B71B0-50C3-4909-8491-9008182B3C99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{657F4AA6-609B-4A58-8091-F74587524EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{657F4AA6-609B-4A58-8091-F74587524EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{657F4AA6-609B-4A58-8091-F74587524EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{657F4AA6-609B-4A58-8091-F74587524EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4202EEEF-693D-2227-5080-01509AFAA66C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4202EEEF-693D-2227-5080-01509AFAA66C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4202EEEF-693D-2227-5080-01509AFAA66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4202EEEF-693D-2227-5080-01509AFAA66C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
